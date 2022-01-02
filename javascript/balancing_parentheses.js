@@ -1,5 +1,19 @@
 function balancingParentheses(string) {
   // type your code here
+  let left=0
+  let right=0
+  for (let i=0; i<string.length; i++){
+    if(string[i] === '('){
+      left++
+    }else{
+      if(left>0){
+        left--
+      }else{
+        right++
+      }
+    }
+  }
+  return left+right
 }
 
 if (require.main === module) {
@@ -16,6 +30,11 @@ if (require.main === module) {
 
   console.log("Expecting: 1");
   console.log(balancingParentheses(')'));
+
+  console.log("");
+
+  console.log("Expecting: 2");
+  console.log(balancingParentheses(')()('));
 }
 
 module.exports = balancingParentheses;
